@@ -7,8 +7,11 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const compression = require('compression');
 
 const app = express();
+
+app.use(compression()); //compress all routes
 
 //setup mongodb connection
 const mongoDb = process.env.MONGODB_URI;
