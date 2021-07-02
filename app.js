@@ -20,8 +20,12 @@ mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
-//allow access from anywhere for now
-app.use(cors());
+//allow access only from specified sites
+
+app.use(cors({
+   origin: 'https://arya-poudel.github.io'
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
